@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" type="text/css" href="main.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-animate.js"></script>
+      <script src="app.js"></script>
+  </head>
+  <body ng-controller="FlickrSearch as vm">
+    <h1>Flickr Search</h1>
+    <form ng-submit="vm.searchImage()">
+      <input type="text" placeholder="Enter your search here" ng-model="vm.searchTerm">
+      <input type="submit">
+    </form>
+    <div ng-if="vm.loading" class="loading">
+      Loading...
+    </div>
+    <div class="photos" ng-repeat="photo in vm.results.data.photos.photo">
+      <div class="photo-container">
+        <img class="indiv-photo" ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}.jpg"></img>
+      </div>
+    </div>
+  </body>
+</html>
