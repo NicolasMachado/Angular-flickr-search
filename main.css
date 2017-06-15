@@ -13,22 +13,36 @@ form {
   margin: 15px;
 }
 
-.photos {
-  display: inline-block;
-  margin: 10px;
-  vertical-align: top;
-}
-
 .indiv-photo {
   max-width: 200px;
-}
-
-.indiv-photo.ng-enter {
-  width: 10px;
 }
 
 .photo-container {
   height: 200px;
   width: 200px;
   overflow: hidden;
+  display: inline-block;
+  margin: 10px;
+  vertical-align: top;
+}
+
+.photo-container.ng-enter, .photo-container.ng-leave {
+    transition: all linear 1s;
+}
+
+.photo-container.ng-enter,
+.photo-container.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+.photo-container.ng-leave,
+.photo-container.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+.photo-container.ng-enter-stagger {
+    transition-delay: 0.1s;
+}
+
+.photo-container.ng-leave-stagger {
+    transition-delay: 0.1s;
 }

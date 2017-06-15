@@ -10,16 +10,14 @@
   <body ng-controller="FlickrSearch as vm">
     <h1>Flickr Search</h1>
     <form ng-submit="vm.searchImage()">
-      <input type="text" placeholder="Enter your search here" ng-model="vm.searchTerm">
+      <input required type="text" placeholder="Enter your search here" ng-model="vm.searchTerm">
       <input type="submit">
     </form>
     <div ng-if="vm.loading" class="loading">
       Loading...
     </div>
-    <div class="photos" ng-repeat="photo in vm.results.data.photos.photo">
-      <div class="photo-container">
+    <div class="photo-container" ng-repeat="photo in vm.results.data.photos.photo">
         <img class="indiv-photo" ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}.jpg"></img>
-      </div>
     </div>
   </body>
 </html>

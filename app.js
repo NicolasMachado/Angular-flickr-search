@@ -1,9 +1,9 @@
-angular.module('myApp', [])
+angular.module('myApp', ['ngAnimate'])
   .config(function($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
   })
-  .controller('FlickrSearch', function($scope, $http, $sce) {
+  .controller('FlickrSearch', function($scope, $http) {
     var vm = this;
     vm.loading = false;
     vm.photos = ['gdgfdg', 'fdgfdgdf', 'gfdgf'];
